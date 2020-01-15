@@ -158,9 +158,11 @@ if (params.mode=="somatic"){
      mv somatic.indels.vcf.gz.tbi !{pair[0]}_vs_!{pair[2]}.somatic.indels.vcf.gz.tbi
      mv somatic.snvs.vcf.gz.tbi !{pair[0]}_vs_!{pair[2]}.somatic.snvs.vcf.gz.tbi
      fixStrelkaOutput.sh *.vcf.gz
-     mv strelkaAnalysis/results/regions/* .
-     mv somatic.callable.regions.bed.gz !{pair[0]}_vs_!{pair[2]}.somatic.callable.regions.bed.gz
-     mv somatic.callable.regions.bed.gz.tbi !{pair[0]}_vs_!{pair[2]}.somatic.callable.regions.bed.gz.tbi
+     if [ -d "strelkaAnalysis/results/regions" ]; then
+          mv strelkaAnalysis/results/regions/* .
+          mv somatic.callable.regions.bed.gz !{pair[0]}_vs_!{pair[2]}.somatic.callable.regions.bed.gz
+          mv somatic.callable.regions.bed.gz.tbi !{pair[0]}_vs_!{pair[2]}.somatic.callable.regions.bed.gz.tbi
+     fi
      '''
   }
     
