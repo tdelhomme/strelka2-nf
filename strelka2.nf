@@ -126,7 +126,7 @@ if (params.mode=="somatic"){
   pairs = Channel.fromPath(params.tn_pairs).splitCsv(header: true, sep: '\t', strip: true)
   .map{ row -> [ file(params.input_folder + "/" + row.tumor), file(params.input_folder + "/" + row.tumor+'.bai'), file(params.input_folder + "/" + row.normal), file(params.input_folder + "/" + row.normal+'.bai') ] }
 
-  process run_strelka {
+  process run_strelka_s {
 
      cpus params.cpu
      memory params.mem+'GB' 
