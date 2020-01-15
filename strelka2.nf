@@ -143,7 +143,7 @@ if (params.mode=="somatic"){
 
      output:
      file '*vcf.gz' into vcffiles
-     file '*bed.gz' into regionfiles
+     file '*bed.gz' optional true into regionfiles
 
      shell:
      if (params.callRegions!="NO_FILE") { callRegions="--callRegions $bed" } else { callRegions="" }
