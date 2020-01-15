@@ -171,7 +171,7 @@ if (params.mode=="germline"){
 
   bamFiles = Channel.fromFilePairs( params.input_folder + '/*.{bam,bam.bai}')
 
-  process run_strelka {
+  process run_strelka_g {
 
     cpus params.cpu
     memory params.mem+'GB'
